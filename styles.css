@@ -42,6 +42,6 @@ button:hover {
   background-color: #0056b3;
 }
 
-#queue-info {
+#queue-info, #wait-time-section {
   margin-top: 20px;
 }
