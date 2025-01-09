@@ -1,6 +1,6 @@
-// Import Firebase
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, onValue } from "firebase/database";
+// ใช้ Firebase จาก global object
+const { initializeApp } = firebase;
+const { getDatabase, ref, set, onValue } = firebase.database;
 
 // Firebase configuration
 const firebaseConfig = {
