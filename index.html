@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ระบบจอคิวถ่ายรูป Photobooth</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- เรียกใช้ QRCode.js ผ่าน CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
 </head>
 <body>
   <div class="container">
@@ -13,7 +15,7 @@
     <!-- ส่วนแสดง QR Code สำหรับลงทะเบียน -->
     <div id="qr-section">
       <h2>สแกน QR Code เพื่อลงทะเบียน</h2>
-      <img id="qr-code" src="" alt="QR Code">
+      <div id="qr-code"></div> <!-- เปลี่ยนจาก <img> เป็น <div> -->
     </div>
 
     <!-- ส่วนแสดงข้อมูลคิวและเวลารอคอย -->
@@ -31,7 +33,7 @@
     </div>
   </div>
 
-  <!-- Import Firebase และ script.js -->
+  <!-- Import script.js -->
   <script type="module" src="script.js"></script>
 </body>
 </html>
