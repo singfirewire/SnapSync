@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>หน้าจอผู้ดูแลระบบ</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>หน้าจอผู้ดูแลระบบ Photobooth</h1>
+
+    <!-- ส่วนแสดง QR Code -->
+    <div id="qr-section">
+      <h2>QR Code สำหรับลงทะเบียน</h2>
+      <img id="qr-code" src="" alt="QR Code">
+    </div>
+
+    <!-- ส่วนแสดงข้อมูลคิว -->
+    <div id="queue-info">
+      <h2>ข้อมูลคิว</h2>
+      <p>จำนวนคิวที่จองแล้ว: <span id="total-queue">0</span></p>
+      <p>หมายเลขคิวปัจจุบัน: <span id="current-queue">0</span></p>
+    </div>
+  </div>
+
+  <!-- Import Firebase และ script.js -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
