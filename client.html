@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>หน้าจอลูกค้า Photobooth</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>เลือกรูปแบบการถ่ายรูป</h1>
+
+    <!-- ส่วนเลือกประเภทการถ่ายรูป -->
+    <div id="photo-options">
+      <button id="single-photo">ถ่ายรูปเดียว</button>
+      <button id="group-photo">ถ่ายรูปคู่</button>
+    </div>
+
+    <!-- ส่วนแสดงเวลารอคอย -->
+    <div id="wait-time-section">
+      <h2>เวลารอคอยโดยประมาณ</h2>
+      <p id="wait-time">-</p>
+    </div>
+  </div>
+
+  <!-- Import Firebase และ script.js -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
