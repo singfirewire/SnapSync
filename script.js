@@ -88,3 +88,29 @@ if (document.getElementById('total-queue')) {
     updateQueueInfo();
   });
 }
+// Function สำหรับสร้าง QR Code ใหม่
+function generateQRCode() {
+  const qrCodeElement = document.getElementById('qr-code');
+  if (qrCodeElement) {
+    // ลบ QR Code เก่าออก (ถ้ามี)
+    qrCodeElement.innerHTML = '';
+
+    // สร้างรหัสสุ่มสำหรับ QR Code
+    const randomCode = Math.random().toString(36).substring(7);
+
+    // สร้าง QR Code ใหม่
+    new QRCode(qrCodeElement, {
+      text: randomCode,
+      width: 200,
+      height: 200,
+    });
+
+    console.log("QR Code generated:", randomCode); // สำหรับ debug
+  }
+}
+
+// สร้าง QR Code ทันทีเมื่อโหลดหน้าเว็บ
+generateQRCode();
+
+// สร้าง QR Code ใหม่ทุก 1 นาที
+setInterval(generateQRCode, 60000);
