@@ -48,7 +48,8 @@ function addQueue(type) {
   const queueRef = ref(database, `queues/${totalQueue}`);
   set(queueRef, {
     type: type,
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
+    status: 'waiting'
   }).then(() => {
     alert(`เพิ่มคิวสำเร็จ! ลำดับคิวของคุณคือ ${totalQueue}`);
     updateQueueInfo();
@@ -102,8 +103,13 @@ if (document.getElementById('total-queue')) {
   const queueRef = ref(database, 'queues');
   onValue(queueRef, (snapshot) => {
     const data = snapshot.val();
-    totalQueue = Object.keys(data || {}).length;
-    currentQueue = totalQueue; // ตัวอย่าง: คิวปัจจุบันคือคิวสุดท้าย
+    if (data) {
+      totalQueue = Object.keys(data).length;
+      currentQueue = totalQueue;
+    } else {
+      totalQueue = 0;
+      currentQueue = 0;
+    }
     updateQueueInfo();
   });
 }
