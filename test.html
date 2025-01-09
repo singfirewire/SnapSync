@@ -1,28 +1,57 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ทดสอบ Firebase</title>
-  <!-- เรียกใช้ Firebase SDK ผ่าน CDN -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"></script>
-</head>
-<body>
-  <div class="container">
-    <h1>ทดสอบ Firebase Realtime Database</h1>
+// ใช้ Firebase จาก global object
+const { initializeApp } = firebase;
+const { getDatabase, ref, set, onValue } = firebase.database;
 
-    <!-- ส่วนแสดงข้อมูล -->
-    <div id="data-section">
-      <h2>ข้อมูลจาก Firebase</h2>
-      <p id="firebase-data">กำลังโหลดข้อมูล...</p>
-    </div>
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyA5c5nHaw6s1X1quiybFD_zq7vB4tIfIVQ",
+  authDomain: "eventcost-pro.firebaseapp.com",
+  databaseURL: "https://eventcost-pro-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "eventcost-pro",
+  storageBucket: "eventcost-pro.firebasestorage.app",
+  messagingSenderId: "114353067568",
+  appId: "1:114353067568:web:1b444a5cb44d0f73e8bff5"
+};
 
-    <!-- ปุ่มสำหรับเขียนข้อมูล -->
-    <button id="write-data">เขียนข้อมูลทดสอบ</button>
-  </div>
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
 
-  <!-- Import script.js -->
-  <script src="test.js"></script>
-</body>
-</html>
+// อ้างอิงไปยัง path ที่ต้องการใน Firebase
+const testRef = ref(database, 'test');
+
+// Function สำหรับเขียนข้อมูลทดสอบ
+function writeTestData() {
+  const testData = {
+    message: "สวัสดีจาก Firebase!",
+    timestamp: new Date().toISOString()
+  };
+
+  set(testRef, testData)
+    .then(() => {
+      console.log('เขียนข้อมูลสำเร็จ!');
+    })
+    .catch((error) => {
+      console.error('เกิดข้อผิดพลาดในการเขียนข้อมูล:', error);
+    });
+}
+
+// Function สำหรับอ่านข้อมูลทดสอบ
+function readTestData() {
+  onValue(testRef, (snapshot) => {
+    const data = snapshot.val();
+    const dataElement = document.getElementById('firebase-data');
+
+    if (data) {
+      dataElement.textContent = JSON.stringify(data, null, 2);
+    } else {
+      dataElement.textContent = 'ไม่มีข้อมูลใน Firebase';
+    }
+  });
+}
+
+// Event listener สำหรับปุ่มเขียนข้อมูล
+document.getElementById('write-data').addEventListener('click', writeTestData);
+
+// อ่านข้อมูลทดสอบเมื่อโหลดหน้าเว็บ
+readTestData();
