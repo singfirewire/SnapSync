@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ทดสอบ Firebase</title>
+  <!-- เรียกใช้ Firebase SDK ผ่าน CDN -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>ทดสอบ Firebase Realtime Database</h1>
+
+    <!-- ส่วนแสดงข้อมูล -->
+    <div id="data-section">
+      <h2>ข้อมูลจาก Firebase</h2>
+      <p id="firebase-data">กำลังโหลดข้อมูล...</p>
+    </div>
+
+    <!-- ปุ่มสำหรับเขียนข้อมูล -->
+    <button id="write-data">เขียนข้อมูลทดสอบ</button>
+  </div>
+
+  <!-- Import script.js -->
+  <script src="test.js"></script>
+</body>
+</html>
