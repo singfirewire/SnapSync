@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบจอคิวถ่ายรูป Photobooth</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>ระบบจอคิวถ่ายรูป Photobooth</h1>
+    
+    <!-- ส่วนแสดง QR Code สำหรับลงทะเบียน -->
+    <div id="qr-section">
+      <h2>สแกน QR Code เพื่อลงทะเบียน</h2>
+      <img id="qr-code" src="" alt="QR Code">
+    </div>
+
+    <!-- ส่วนแสดงข้อมูลคิวและเวลารอคอย -->
+    <div id="queue-info">
+      <h2>ข้อมูลคิวของคุณ</h2>
+      <p>ลำดับคิว: <span id="queue-number">-</span></p>
+      <p>เวลารอคอยโดยประมาณ: <span id="wait-time">-</span> นาที</p>
+    </div>
+
+    <!-- ส่วนเลือกประเภทการถ่ายรูป -->
+    <div id="photo-options">
+      <h2>เลือกประเภทการถ่ายรูป</h2>
+      <button id="single-photo">ถ่ายรูปเดียว</button>
+      <button id="group-photo">ถ่ายรูปหมู่</button>
+    </div>
+  </div>
+
+  <!-- Import Firebase และ script.js -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
